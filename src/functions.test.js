@@ -12,11 +12,17 @@
 //   }
 // }
 
-// const max = (x, y) => {
-//   return Math.max(x, y)
-// }
+const max = (x, y) => {
+  if (isNaN(x)) {
+    return y
+  } else if (isNaN(y)) {
+    return x
+  } else {
+    return Math.max(x, y)
+  }
+}
 
-const max = (x, y) => Math.max(x, y)
+// const max = (x, y) => Math.max(x, y)
 
 /**
  * 2) Define a function maxOfThree() that takes three
@@ -33,11 +39,19 @@ const max = (x, y) => Math.max(x, y)
 //   }
 // }
 
-// const maxOfThree = (x, y, z) => {
-//   return Math.max(x, y, z)
-// }
+const maxOfThree = (x, y, z) => {
+  if (isNaN(x)) {
+    return Math.max(y, z)
+  } else if (isNaN(y)) {
+    return Math.max(x, z)
+  } else if (isNaN(x)) {
+    return Math.max(y, z)
+  } else {
+    return Math.max(x, y, z)
+  }
+}
 
-const maxOfThree = (x, y, z) => Math.max(x, y, z)
+// const maxOfThree = (x, y, z) => Math.max(x, y, z)
 
 /*
  * 3) Define a function sum() that takes two numbers as
@@ -79,18 +93,18 @@ const sumOfArray = arr => {
 //   }
 // }
 
-// const isVowel = str => {
-//   const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
-//   if (vowels.includes(str)) {
-//     return true
-//   } else {
-//     return false
-//   }
-// }
-
-const isVowel = s => {
-  return /[aeiouAEIOU]/.test(s)
+const isVowel = str => {
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+  if (vowels.includes(str)) {
+    return true
+  } else {
+    return false
+  }
 }
+
+// const isVowel = s => {
+//   return /[aeiouAEIOU]/.test(s)
+// }
 
 /**
  * 6) Write a function rovarspraket() that will translate
@@ -101,24 +115,36 @@ const isVowel = s => {
  * return the string "tothohisos isos fofunon".
  */
 
-const rovarspraket = char => {
-  let rV = []
-  let arr = char.split('')
-  arr.forEach(character => {
-    if (
-      character != 'a' &&
-      character != 'e' &&
-      character != 'i' &&
-      character != 'o' &&
-      character != 'u'
-    ) {
-      rV.push(`${character}o${character}`)
-    } else {
-      rV.push(character)
-    }
-  })
-  // return rV.join().replace(/,/g, '')
-  return rV.join('')
+// const rovarspraket = char => {
+//   let rV = []
+//   let arr = char.split('')
+//   arr.forEach(character => {
+//     if (
+//       character != 'a' &&
+//       character != 'e' &&
+//       character != 'i' &&
+//       character != 'o' &&
+//       character != 'u'
+//     ) {
+//       rV.push(`${character}o${character}`)
+//     } else {
+//       rV.push(character)
+//     }
+//   })
+//   // return rV.join().replace(/,/g, '')
+//   return rV.join('')
+// }
+
+// const rovarspraket = str =>
+//   Array.prototype.map
+//     .call(str, s => ('aeiou'.includes(s) ? s : `${s}o${s}`))
+//     .join('')
+
+const rovarspraket = str => {
+  return str
+    .split('')
+    .map(s => ('aeiou'.includes(s) ? s : `${s}o${s}`))
+    .join('')
 }
 
 /**
