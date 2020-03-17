@@ -4,35 +4,93 @@
  * construct available in Javascript.
  */
 
-// ...
+// const max = (x, y) => {
+//   if (x > y) {
+//     return x
+//   } else {
+//     return y
+//   }
+// }
+
+// const max = (x, y) => {
+//   return Math.max(x, y)
+// }
+
+const max = (x, y) => Math.max(x, y)
 
 /**
  * 2) Define a function maxOfThree() that takes three
  * numbers as arguments and returns the largest of them.
  */
 
-// ...
+// const maxOfThree = (x, y, z) => {
+//   if (x > y && x > z) {
+//     return x
+//   } else if (y > x && y > z) {
+//     return y
+//   } else {
+//     return z
+//   }
+// }
+
+// const maxOfThree = (x, y, z) => {
+//   return Math.max(x, y, z)
+// }
+
+const maxOfThree = (x, y, z) => Math.max(x, y, z)
 
 /*
  * 3) Define a function sum() that takes two numbers as
  * arguments and computes the sum of those two numbers.
  */
 
-// ...
+const sum = (x, y) => {
+  return x + y
+}
 
 /*
  * 4) Define a function sumOfArray that calculates the sum of
  * all the numbers in an array.
  */
 
-// ...
+// const sumOfArray = arr => {
+//   let count = 0
+//   arr.forEach(i => {
+//     count += i
+//   })
+//   return count
+// }
+
+const sumOfArray = arr => {
+  return arr.reduce((total, num) => total + num, 0)
+}
 
 /**
  * 5) Write a function isVowel() that takes a character (i.e. a string of length 1)
  * and returns true if it is a vowel, false otherwise.
  */
 
-// ...
+// const isVowel = str => {
+//   str = str.toLowerCase()
+//   if (str == 'a' || str == 'e' || str == 'i' || str == 'o' || str == 'u') {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+
+// const isVowel = str => {
+//   const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+//   if (vowels.includes(str)) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+
+const isVowel = s => {
+  return /[aeiouAEIOU]/.test(s)
+}
 
 /**
  * 6) Write a function rovarspraket() that will translate
@@ -43,7 +101,25 @@
  * return the string "tothohisos isos fofunon".
  */
 
-// ...
+const rovarspraket = char => {
+  let rV = []
+  let arr = char.split('')
+  arr.forEach(character => {
+    if (
+      character != 'a' &&
+      character != 'e' &&
+      character != 'i' &&
+      character != 'o' &&
+      character != 'u'
+    ) {
+      rV.push(`${character}o${character}`)
+    } else {
+      rV.push(character)
+    }
+  })
+  // return rV.join().replace(/,/g, '')
+  return rV.join('')
+}
 
 /**
  * 7) Define a function reverse() that computes
@@ -52,7 +128,11 @@
  * string "books".
  */
 
-// ...
+const reverse = str => {
+  let straight = str.split('')
+  let rV = straight.reverse()
+  return rV.join('')
+}
 
 /**
  * 8) Write a function findLongestWord() that takes an
@@ -61,7 +141,28 @@
  * i.e. findLongestWord("book dogs") should return "book"
  */
 
-// ...
+// const findLongestWord = str => {
+//   let arr = str.split(' ')
+//   let rv = arr.reduce((x, y) => {
+//     if (x.length > y.length) {
+//       return x
+//     } else {
+//       return y
+//     }
+//   })
+//   return rv
+// }
+
+const findLongestWord = str => {
+  let arr = str.split(' ')
+  let rv = ''
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > rv.length) {
+      rv = arr[i]
+    }
+  }
+  return rv
+}
 
 /**
  * NOTE: Don't modify anything below this line...
